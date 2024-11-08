@@ -1,0 +1,32 @@
+/* Correction pour remplacer 'color-adjust' par 'print-color-adjust' */
+* {
+  print-color-adjust: exact;
+}
+
+/* Corrections pour les préfixes des fournisseurs et propriétés manquantes */
+[type="text"],
+[type="search"],
+[type="button"],
+[type="file"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  appearance: button;
+  font: inherit;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+  appearance: button;
+}

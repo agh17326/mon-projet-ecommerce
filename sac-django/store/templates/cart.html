@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block title %}Cart{% endblock %} {% block content
+%}
+
+<main style="text-align: center">
+  <section class="cart">
+    {% for ligne in lignes %}
+    <article class="product flex">
+      <button>
+        <i class="fa-solid fa-trash-can"> </i>
+      </button>
+
+      <p class="price">${{ ligne.prix }}</p>
+
+      <div class="flex" style="margin-right: 1rem">
+        <button class="decrease">-</button>
+        <div class="quantity flex">{{ ligne.quantite }}</div>
+        <button class="increase">+</button>
+      </div>
+
+      <p class="title">{{ ligne.produit.nom }}</p>
+
+      <img
+        style="border-radius: 0.22rem"
+        width="70"
+        height="70"
+        alt="{{ ligne.produit.nom }}"
+        src="{{ ligne.produit.image.url }}"
+      />
+    </article>
+    {% endfor %}
+
+    <button class="clear">
+      <i
+        class="fa-solid fa-trash-can icon"
+        style="color: #fff; margin-right: 0.2rem"
+      ></i>
+      Clear Cart
+    </button>
+
+    <section class="summary">
+      <h1>Résumé du panier</h1>
+      <div class="flex">
+        <p class="Subtotal">Sous-total</p>
+        <p>${{ total }}</p>
+      </div>
+      <button disabled class="checkout">Payer</button>
+      {% if not user.is_authenticated %}
+      <a href="{% url 'login' %}">Veuillez vous connecter pour continuer.</a>
+      {% endif %}
+    </section>
+  </section>
+</main>
+<script src="{% static 'js/cart.js' %}"></script>
+
+{% endblock %}

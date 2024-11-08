@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block content %}
+<div class="top-img">
+    {% include 'partials/header.html' %}
+    <section class="content">
+        <p class="lifestyle">Collection de style de vie</p>
+        <p class="men">Femmes</p>
+        <p class="sale">Vente jusqu'à <span>30 % de réduction</span></p>
+        <p class="free-shipping">
+            Livraison gratuite pour les commandes de plus de 99,00 €<br />
+            avec un délai de livraison estimé entre 2 et 5 jours ouvrables.
+        </p>
+        <button onclick="document.getElementById('article1').scrollIntoView();">
+            Achète maintenant
+        </button>
+    </section>
+</div>
+
+<h1 class="recommended">
+  <i class="fa-solid fa-check"></i>
+  Recommandé pour vous
+</h1>
+
+<section class="products flex">
+  {% for produit in produits %}
+  <article class="card">
+    <a href="{% url 'product_details' produit.id %}">
+      <img width="266" src="{{ produit.image.url }}" alt="{{ produit.nom }}" />
+    </a>
+
+    <div style="width: 266px" class="content">
+      <h1 class="title">{{ produit.nom }}</h1>
+      <p class="description">
+        {{ produit.description|truncatewords:20 }}
+      </p>
+
+      <div class="flex" style="justify-content: space-between; padding-bottom: 0.7rem">
+        <div class="price">${{ produit.prix }}</div>
+        <a href="{% url 'product_details' produit.id %}" class="add-to-cart flex">
+          <i class="fa-solid fa-cart-plus"></i>
+          Voir détails
+        </a>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}
+

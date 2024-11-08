@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block content %}
+<main class="px-3 text-center text-bg-dark" style="max-width: 500px">
+  <form method="post" style="text-align: left">
+    {% csrf_token %}
+
+    <!-- Message d'erreur général -->
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+      {% for error in form.non_field_errors %}
+      <p>{{ error }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Champ Nom d'utilisateur -->
+    <div class="mb-4">
+      {{ form.username.label_tag }}
+      {{ form.username }}
+      {% if form.username.errors %}
+      <div class="text-danger">
+        {% for error in form.username.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Champ Mot de passe -->
+    <div class="mb-4">
+      {{ form.password.label_tag }}
+      {{ form.password }}
+      {% if form.password.errors %}
+      <div class="text-danger">
+        {% for error in form.password.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Checkbox Se souvenir de moi -->
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="rememberMe" name="remember_me" />
+      <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+  </form>
+</main>
+{% endblock %}

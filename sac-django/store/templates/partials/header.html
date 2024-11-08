@@ -1,0 +1,27 @@
+<header id="headerElement" class="flex">
+  <a href="{% url 'index' %}" class="logo">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span style="font-weight: bold">Sac</span>
+    <p style="letter-spacing: 0.5px">Collection</p>
+  </a>
+
+  <div class="links">
+    <a class="nous-contacter" href="{% url 'contact' %}">
+      <i class="fa-solid fa-message"></i>
+      <span style="font-weight: bold">contactez-nous</span>
+    </a>
+    <a style="position: relative" class="cart" href="{% url 'cart' %}">
+      <i class="fa-solid fa-cart-shopping"></i>
+      $0.00
+      <span class="products-number">0</span>
+    </a>
+    <a class="sign-in" href="{% url 'login' %}">
+      <i class="fa-solid fa-right-to-bracket"></i>
+      Se connecter
+    </a>
+    <a class="register" href="{% url 'register' %}">
+      <i class="fa-solid fa-user-plus"></i>
+      S'inscrire
+    </a>
+  </div>
+</header>

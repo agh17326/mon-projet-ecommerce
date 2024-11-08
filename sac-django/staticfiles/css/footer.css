@@ -1,0 +1,32 @@
+footer {
+  text-align: center;
+  background-color: var(--footer-bg);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  padding-block: 1rem;
+  margin-top: 3rem;
+  color: white;
+  font-size: 17px;
+
+  & span {
+    color: #ff7790;
+    text-transform: capitalize;
+
+  }
+  & .fa-brands  {
+    font-size: 1.88rem;
+    margin-top: 0.5rem;
+    padding-inline: 0.4rem;
+    
+  }
+  & .fa-regular  {
+    font-size: 1.88rem;
+    margin-top: 0.5rem;
+    padding-right: 0.1rem;
+  }
+
+  & .fa-instagram{
+    color: blueviolet;
+  }
+}

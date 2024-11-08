@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block content %}
+<main class="px-3 text-center text-bg-dark" style="max-width: 500px">
+
+  <!-- Bloc pour afficher les messages de succès ou d'erreur -->
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <form method="post" style="text-align: left">
+    {% csrf_token %}
+    <div class="mb-4">
+      <label for="nom" class="form-label">Nom et prénom</label>
+      <input type="text" class="form-control" id="nom" name="nom" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="form-label">Adresse e-mail</label>
+      <input type="email" class="form-control" id="email" name="email" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="sujet" class="form-label">Objet</label>
+      <input type="text" class="form-control" id="sujet" name="sujet" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</main>
+{% endblock %}
