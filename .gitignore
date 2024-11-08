@@ -1,0 +1,32 @@
+# Exclude environment folders
+env/
+venv/
+
+# Exclude all Python bytecode files
+*.pyc
+__pycache__/
+
+# Django-specific files
+db.sqlite3
+*.log
+
+# Ignore static and media files generated at runtime (si tu as des dossiers `staticfiles` et `media` dans ton projet)
+staticfiles/
+media/
+
+# Exclude VSCode settings and system files
+.vscode/
+.DS_Store
+
+# Ignore compiled CSS or JS files
+*.css.map
+*.js.map
+
+# Node.js and frontend dependencies
+node_modules/
+
+# Ignore .env or secrets files
+.env
+
+# Ignore any Git metadata
+.git/
